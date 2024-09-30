@@ -25,6 +25,7 @@ public class SinhVienForm extends javax.swing.JFrame {
         dtm = (DefaultTableModel) tbSinhVien.getModel(); // Merge 2 model la 1
         // Goi ham show data vao contructor
         showDataTable(service.getAll());
+        detailSinhVien(1);
     }
 
     // Hien thi len table
@@ -360,6 +361,20 @@ public class SinhVienForm extends javax.swing.JFrame {
         String tuoi = txtTuoi.getText();
         String diaChi = txtDiaChi.getText();
         boolean gioiTinh = rdNam.isSelected();
+        // Validate 
+        // check trong
+        if (mssv.isBlank() || ten.isBlank() || tuoi.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Khong duoc de trong");
+            return null;
+        }
+        // tuoi k dung dinh dang :
+        // C1:try..catch
+        // C2: regex
+        if (!tuoi.matches("\\d+")) {
+            JOptionPane.showMessageDialog(this, "Tuoi k dung dinh dang");
+            return null;
+        }
+        // validate khac tuong tu
         // B2: Khoi tao doi tuong 
         SinhVien sv = new SinhVien(mssv, ten, Integer.valueOf(tuoi), diaChi, gioiTinh);
         // B3: Return doi tuong

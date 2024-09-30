@@ -65,8 +65,13 @@ public class SinhVienService {
         // muon tap hop thanh 1 list: collect
     }
 
-    public void addSinhVien(SinhVien sv) {
+    public String addSinhVien(SinhVien sv) {
+        // toan tu 3 ngoi
+        if (sv == null) {
+            return "Add that bai";
+        }
         lists.add(sv);
+        return " Add thanh cong";
     }
 
     public void updateSinhVien(int index, SinhVien sv) {

@@ -339,7 +339,7 @@ public class SinhVienForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        service.addSinhVien(getFormData());
+        JOptionPane.showMessageDialog(this, service.addSinhVien(getFormData()));
         showDataTable(service.getAll());
     }//GEN-LAST:event_btnThemActionPerformed
 
